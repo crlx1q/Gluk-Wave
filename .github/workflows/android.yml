@@ -1,0 +1,39 @@
+name: Flutter Build APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.22.0'
+        channel: 'stable'
+
+    - name: Get dependencies
+      run: cd gluk_wave && flutter pub get
+
+    - name: Build APK
+      run: cd gluk_wave && flutter build apk --release
+
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: gluk-wave-apk
+        path: gluk_wave/build/app/outputs/flutter-apk/app-release.apk
