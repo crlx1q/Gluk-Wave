@@ -33,7 +33,7 @@ jobs:
       run: cd gluk_wave && flutter build apk --release
 
     - name: Upload APK artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: gluk-wave-apk
         path: gluk_wave/build/app/outputs/flutter-apk/app-release.apk
