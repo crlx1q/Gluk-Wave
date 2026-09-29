@@ -101,7 +101,7 @@ class _SearchViewState extends State<SearchView> {
               hintText: 'Поиск треков...',
               suffixIcon: IconButton(
                 icon: const Icon(Icons.search),
-                onTap: () {
+                onPressed: () {
                   if (_searchController.text.isNotEmpty) {
                     Provider.of<AppState>(context, listen: false).search(_searchController.text);
                   }
