@@ -390,7 +390,7 @@ class _FullPlayerState extends State<FullPlayer> with SingleTickerProviderStateM
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(d.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(d.inSeconds.remainder(60));
-    return "\$twoDigitMinutes:\$twoDigitSeconds";
+    return "$twoDigitMinutes:$twoDigitSeconds";
   }
 }
 
