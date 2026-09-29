@@ -23,7 +23,7 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.22.0'
+        flutter-version: '3.47.5'
         channel: 'stable'
 
     - name: Get dependencies
@@ -33,7 +33,7 @@ jobs:
       run: cd gluk_wave && flutter build apk --release
 
     - name: Upload APK artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: gluk-wave-apk
         path: gluk_wave/build/app/outputs/flutter-apk/app-release.apk

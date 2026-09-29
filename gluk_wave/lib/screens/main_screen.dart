@@ -101,7 +101,7 @@ class _SearchViewState extends State<SearchView> {
               hintText: 'Поиск треков...',
               suffixIcon: IconButton(
                 icon: const Icon(Icons.search),
-                onTap: () {
+                onPressed: () {
                   if (_searchController.text.isNotEmpty) {
                     Provider.of<AppState>(context, listen: false).search(_searchController.text);
                   }
@@ -390,7 +390,7 @@ class _FullPlayerState extends State<FullPlayer> with SingleTickerProviderStateM
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(d.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(d.inSeconds.remainder(60));
-    return "\$twoDigitMinutes:\$twoDigitSeconds";
+    return "$twoDigitMinutes:$twoDigitSeconds";
   }
 }
 

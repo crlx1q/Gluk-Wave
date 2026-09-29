@@ -73,7 +73,7 @@ class AudioPlayerHandler extends BaseAudioHandler with SeekHandler {
         await play();
       }
     } catch (e) {
-      print("Error loading media item: \$e");
+      print("Error loading media item: $e");
     }
   }
 }
