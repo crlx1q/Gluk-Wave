@@ -38,6 +38,8 @@ jobs:
           cache: true
       - name: Generate Android platform
         run: flutter create --platforms=android .
+      - name: Remove generated template test
+        run: rm -f test/widget_test.dart
       - name: Install dependencies
         run: flutter pub get
       - name: Run tests
