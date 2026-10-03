@@ -24,3 +24,5 @@ flutter build apk --release
 Minimum versions: Dart 3.10 and Flutter 3.38.
 
 For rooms, run the Dart server from `server/` and configure the WebSocket endpoint in the app settings.
+
+CI builds the Android APK with the stable Flutter 3.47.6 toolchain.
