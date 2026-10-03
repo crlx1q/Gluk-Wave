@@ -105,7 +105,7 @@ class _RoomBrowser extends StatelessWidget {
                   children: <Widget>[
                     const Row(children: <Widget>[Icon(Icons.circle, color: Color(0xFFA8CF9F), size: 8), SizedBox(width: 6), Text('ЖИВАЯ КОМНАТА', style: TextStyle(color: Colors.white70, fontSize: 9, fontWeight: FontWeight.w800, letterSpacing: 1.2))]),
                     const Spacer(),
-                    const Row(children: <Widget>[
+                    Row(children: <Widget>[
                       CircleAvatar(radius: 14, child: Text('А')),
                       Transform.translate(offset: Offset(-6, 0), child: CircleAvatar(radius: 14, child: Text('M'))),
                       Transform.translate(offset: Offset(-12, 0), child: CircleAvatar(radius: 14, child: Text('N'))),
