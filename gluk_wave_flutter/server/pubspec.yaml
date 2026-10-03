@@ -1,0 +1,7 @@
+name: gluk_wave_room_server
+description: Tiny local WebSocket room server for Gluk Wave prototype.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'

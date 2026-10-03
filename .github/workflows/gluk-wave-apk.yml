@@ -1,0 +1,52 @@
+name: Build Gluk Wave APK
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'gluk_wave_flutter/**'
+      - '.github/workflows/gluk-wave-apk.yml'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'gluk_wave_flutter/**'
+      - '.github/workflows/gluk-wave-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: gluk_wave_flutter
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.38.0'
+          channel: stable
+          cache: true
+      - name: Generate Android platform
+        run: flutter create --platforms=android .
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Run tests
+        run: flutter test
+      - name: Build release APK
+        run: flutter build apk --release
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: gluk-wave-apk
+          path: gluk_wave_flutter/build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
